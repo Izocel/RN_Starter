@@ -3,6 +3,7 @@
 import React, { createRef, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import DropdownAlert from "react-native-dropdownalert";
+import { AppNotifications } from "../helpers/Notifications";
 
 const ScreenNotification = (props) => {
   const dispatch = useDispatch();
@@ -10,6 +11,15 @@ const ScreenNotification = (props) => {
   const type = useSelector((state) => state.screenNotificationReducer.type);
   const title = useSelector((state) => state.screenNotificationReducer.title);
   const isOpen = useSelector((state) => state.screenNotificationReducer.isOpen);
+  const useNotifications = useSelector((state) => state.screenNotificationReducer.useNotifications);
+
+  const notification = {
+    msg: msg,
+    type: type,
+    title: title,
+    isOpen: isOpen,
+    useNotifications: useNotifications
+  }
 
   let dropDownAlertRef = createRef();
 
@@ -24,6 +34,10 @@ const ScreenNotification = (props) => {
   function handleShowType() {
     if (!dropDownAlertRef.alertWithType || !isOpen) {
       return;
+    }
+
+    if(useNotifications) {
+      AppNotifications.local(notification, 10000);
     }
 
     dropDownAlertRef.alertWithType(type, title ?? type?.toUpperCase(), msg);

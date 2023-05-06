@@ -6,9 +6,10 @@ import { connect } from "react-redux";
 
 const Home = (props) => {
     const error = {
-        type: 'warn',
+        type: 'info',
         isOpen: true,
-        msg: "Croissant lollipop candy cookie bonbon liquorice cheesecake pudding apple pie. Jelly dessert chocolate pie fruitcake tart cake. Caramels shortbread jelly-o bear claw sweet roll bonbon liquorice biscuit. Cupcake lemon drops liquorice bear claw fruitcake bear claw croissant. Oat cake donut pudding fruitcake muffin sesame snaps. Cupcake powder dragée candy canes shortbread cotton candy. Cake lollipop brownie jelly gingerbread muffin sweet roll jujubes. Candy croissant fruitcake cake gummies oat cake gingerbread lollipop. Candy croissant pudding pudding ice cream. Marshmallow tootsie roll lemon drops soufflé jujubes dragée shortbread biscuit marshmallow. Halvah biscuit cake chupa chups marzipan macaroon. Croissant danish ice cream cake cupcake icing gingerbread marzipan. Topping candy canes caramels jujubes sesame snaps carrot cake caramels fruitcake liquorice.",
+        msg: "Well looks like you've made it work, good job.",
+        useNotifications: true
       };
 
       props.setError(error);
