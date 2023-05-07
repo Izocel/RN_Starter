@@ -1,18 +1,14 @@
 import * as React from "react";
-import { Text } from "react-native";
 import { Provider } from "react-redux";
-import { NavigationContainer } from "@react-navigation/native";
 import { store } from "./src/store/store";
-import Home from "./src/components/Home";
-import ScreenNotification from "./src/components/ScreenNotification";
+import AppScreenNotification from "./src/components/AppScreenNotification";
+import RootNavigation from "./src/components/navigators/RootStack";
 
 function App() {
   return (
     <Provider store={store}>
-      <NavigationContainer>
-        <Home/>
-      </NavigationContainer>
-      <ScreenNotification/>
+      <RootNavigation/>
+      <AppScreenNotification/>
     </Provider>
   );
 }
